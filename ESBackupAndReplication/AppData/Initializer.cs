@@ -27,7 +27,7 @@ namespace ESBackupAndReplication.AppData
         public void Start()
         {
             this._Scheduler = CronScheduler.GetInstance();
-            //TODO: Schedule clients refresh
+            this._Scheduler.ScheduleClient(1800); //Default interval - 1800
         }
         public void Stop()
         {
@@ -67,7 +67,7 @@ namespace ESBackupAndReplication.AppData
             client.ClientReportUpdated(this._LoginResponse.SessionID);
 
             //TODO: Implement - If config has changed then download new one               
-            if (true)
+            if (client.HasConfigUpdate(this._LoginResponse.SessionID,this._Config.Generated))
             {
                 this._Scheduler.ClearJobs();
                 this._Config = client.GetConfiguration(this._LoginResponse.SessionID);

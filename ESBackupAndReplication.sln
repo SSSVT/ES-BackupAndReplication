@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESBackupAndReplication", "ESBackupAndReplication\ESBackupAndReplication.csproj", "{A6828A63-621B-4114-B05B-2532B4E063F9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupWizard", "SetupWizard\SetupWizard.vdproj", "{E6A180E0-CB55-4403-B2D7-CB0649E91424}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{A6828A63-621B-4114-B05B-2532B4E063F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6828A63-621B-4114-B05B-2532B4E063F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6828A63-621B-4114-B05B-2532B4E063F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A180E0-CB55-4403-B2D7-CB0649E91424}.Debug|Any CPU.ActiveCfg = Debug
+		{E6A180E0-CB55-4403-B2D7-CB0649E91424}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
