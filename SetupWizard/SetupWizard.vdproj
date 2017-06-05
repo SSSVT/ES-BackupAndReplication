@@ -549,7 +549,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Backup&Replication"
         "ProductCode" = "8:{0F580904-7D42-401A-90EE-C5F10C596783}"
-        "PackageCode" = "8:{2AFF9D38-0494-4405-A695-5823E9450640}"
+        "PackageCode" = "8:{4A2F2E15-AD94-4497-86ED-2B314227E6BD}"
         "UpgradeCode" = "8:{46FA5844-B499-480C-AB88-792F9D3569E2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -669,20 +669,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ED280D8450864985BE58C64AB08B2FDF"
-            {
-            "Name" = "8:ESBackupService"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_F2AAD60694214C0E97AADE8FCBDE550D"
-            "Folder" = "8:_E57A0ED47F1F45E5923876B8CF02DC74"
-            "WorkingFolder" = "8:_D68BC68DCCCC42048A3C811B2EC4F1FD"
-            "Icon" = "8:"
-            "Feature" = "8:"
-            }
         }
         "UserInterface"
         {
@@ -1087,7 +1073,7 @@
             "SourcePath" = "8:..\\ESBackupAndReplication\\obj\\Debug\\ESBackupAndReplication.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_D68BC68DCCCC42048A3C811B2EC4F1FD"
+            "Folder" = "8:_CFA6236B581B48CB980E14921AC135A5"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
