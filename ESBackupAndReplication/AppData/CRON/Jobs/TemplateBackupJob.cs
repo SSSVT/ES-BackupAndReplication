@@ -46,7 +46,7 @@ namespace ESBackupAndReplication.AppData.CRON.Jobs
             {
                 DateTime Begin = DateTime.UtcNow;
                 this._Manager = new BackupManager(new LocalAccess());
-                this._Manager.FullBackup(path.Source, path.Destination, template.SearchPattern, ".*", template.Compression);
+                this._Manager.FullBackup(path.Source, path.Destination + $"//{DateTime.UtcNow.ToString()}", template.SearchPattern, ".*", template.Compression);
                 DateTime End = DateTime.UtcNow;
                 data.Add(new BackupInfo()
                 {
