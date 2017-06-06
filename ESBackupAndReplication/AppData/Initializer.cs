@@ -65,13 +65,13 @@ namespace ESBackupAndReplication.AppData
             ESBackupServerServiceClient client = new ESBackupServerServiceClient();
             this._LoginResponse = client.Login(this._User.Username, this._User.Password);
             client.ClientReportUpdated(this._LoginResponse.SessionID);
-
-            //TODO: Implement - If config has changed then download new one               
+                     
             if (client.HasConfigUpdate(this._LoginResponse.SessionID,this._Config.Generated))
             {
-                this._Scheduler.ClearJobs();
+                this._Scheduler.ClearJobs();              
                 this._Config = client.GetConfiguration(this._LoginResponse.SessionID);
 
+                this._Scheduler.ScheduleClient((int)this._Config.ReportInterval);
                 if (this._Config.Templates.Length != 0)
                 {
                     foreach (BackupTemplate template in this._Config.Templates)
