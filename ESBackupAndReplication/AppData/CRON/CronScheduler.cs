@@ -18,8 +18,7 @@ namespace ESBackupAndReplication.AppData.CRON
         private static CronScheduler _Instance { get; set; }
         private CronScheduler()
         {
-            this._scheduler = StdSchedulerFactory.GetDefaultScheduler();
-            this.Start();
+            this._scheduler = StdSchedulerFactory.GetDefaultScheduler();            
         }
         public static CronScheduler GetInstance()
         {
@@ -51,14 +50,12 @@ namespace ESBackupAndReplication.AppData.CRON
         {
             IJobDetail job = JobBuilder.Create<Initializer>()
                 .WithIdentity("job_client")
-                .Build();
-
-            job.JobDataMap.Add("interval", interval);            
+                .Build();                   
 
             ITrigger trigger = TriggerBuilder.Create()
                 .WithIdentity("trigger_client")
                 .StartNow()
-                .WithSimpleSchedule(x => x.WithIntervalInSeconds(interval))
+                .WithSimpleSchedule(x => x.WithIntervalInSeconds(interval).RepeatForever())
                 .Build();
 
             this._scheduler.ScheduleJob(job, trigger);
