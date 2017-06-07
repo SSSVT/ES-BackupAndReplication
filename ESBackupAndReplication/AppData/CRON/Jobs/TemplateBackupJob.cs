@@ -13,15 +13,14 @@ namespace ESBackupAndReplication.AppData.CRON.Jobs
     public class TemplateBackupJob : IJob
     {
         #region Local propeties
-        private BackupManager _Manager { get; set; } = new BackupManager(new LocalAccess());
+        private BackupManager _Manager { get; set; }
         private Guid _SessionID { get; set; }
         #endregion
         public void Execute(IJobExecutionContext context)
         {
             var dataMap = context.MergedJobDataMap;
             BackupTemplate template = (BackupTemplate)dataMap["template"];
-            this._SessionID = (Guid)dataMap["sessionID"];
-            //TODO: Execute backup            
+            this._SessionID = (Guid)dataMap["sessionID"];                       
             switch (template.BackupType)
             {
                 case 0:
@@ -46,7 +45,8 @@ namespace ESBackupAndReplication.AppData.CRON.Jobs
             foreach (BackupTemplatePath path in template.Paths)
             {
                 DateTime Begin = DateTime.UtcNow;
-                this._Manager.FullBackup(path.Source, path.Destination, template.SearchPattern, ".*", template.Compression);
+                this._Manager = new BackupManager(new LocalAccess());
+                this._Manager.FullBackup(path.Source, path.Destination + $"//{DateTime.UtcNow.ToString()}", template.SearchPattern, ".*", template.Compression);
                 DateTime End = DateTime.UtcNow;
                 data.Add(new BackupInfo()
                 {
@@ -82,8 +82,8 @@ namespace ESBackupAndReplication.AppData.CRON.Jobs
             List<BackupInfo> data = new List<BackupInfo>();
             foreach (BackupTemplatePath path in template.Paths)
             {
+                this._Manager = new BackupManager(new LocalAccess());
                 //this.Manager.DifferentialBackup();
-
             }
 
             return data;
@@ -94,8 +94,8 @@ namespace ESBackupAndReplication.AppData.CRON.Jobs
             List<BackupInfo> data = new List<BackupInfo>();
             foreach (BackupTemplatePath path in template.Paths)
             {
+                this._Manager = new BackupManager(new LocalAccess());
                 //this.Manager.IncrementalBackup();
-
             }
             return data;
         }

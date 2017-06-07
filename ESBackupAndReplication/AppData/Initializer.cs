@@ -19,32 +19,32 @@ namespace ESBackupAndReplication.AppData
         private LoginResponse _LoginResponse { get; set; }
         private Configuration _Config { get; set; }
         #endregion       
+        public Initializer()
+        {
+            this.Start();
+        }
 
         public void Start()
         {
             this._Scheduler = CronScheduler.GetInstance();
-            this._Scheduler.ScheduleClient(10); //Default interval - 1800
+            this._Scheduler.ScheduleClient(1800); //Default interval - 1800
         }
         public void Stop()
         {
-            if(this._LoginResponse != null)
-            {            
-                if (this._LoginResponse.UTCExpiration > DateTime.UtcNow)
-                {
-                    ESBackupServerServiceClient client = new ESBackupServerServiceClient();
-                    client.Logout(this._LoginResponse.SessionID);
-                    client.Close();
-                }
+            if (this._LoginResponse.UTCExpiration > DateTime.UtcNow)
+            {
+                ESBackupServerServiceClient client = new ESBackupServerServiceClient();
+                client.Logout(this._LoginResponse.SessionID);
+                client.Close();
             }
-            this._Scheduler.Stop();
         }
 
         public bool EstabilishConnection()
-        {           
+        {
             bool estabilished;
             ESBackupServerServiceClient client = new ESBackupServerServiceClient();
             //TODO: Correct parameters in Registration
-            RegistrationResponse response = client.RequestRegistration("PC-Test-Znova", "hwid");
+            RegistrationResponse response = client.RequestRegistration("PC-Name", "hwid");
             if (response.Status == ClientStatus.Verified)
             {
                 this._User = new User()
@@ -64,13 +64,14 @@ namespace ESBackupAndReplication.AppData
         {
             ESBackupServerServiceClient client = new ESBackupServerServiceClient();
             this._LoginResponse = client.Login(this._User.Username, this._User.Password);
-            client.ClientReportUpdated(this._LoginResponse.SessionID);            
-            //TODO: Implement - If config has changed then download new one               
-            //if (client.HasConfigUpdate(this._LoginResponse.SessionID,this._Config.Generated))
-            if (true)
+            client.ClientReportUpdated(this._LoginResponse.SessionID);
+                     
+            if (client.HasConfigUpdate(this._LoginResponse.SessionID,this._Config.Generated))
             {
-                this._Scheduler.ClearJobs();
-                this._Config = client.GetConfiguration(this._LoginResponse.SessionID);                
+                this._Scheduler.ClearJobs();              
+                this._Config = client.GetConfiguration(this._LoginResponse.SessionID);
+
+                this._Scheduler.ScheduleClient((int)this._Config.ReportInterval);
                 if (this._Config.Templates.Length != 0)
                 {
                     foreach (BackupTemplate template in this._Config.Templates)
@@ -88,11 +89,10 @@ namespace ESBackupAndReplication.AppData
         public void Execute(IJobExecutionContext context)
         {
             if (this._User == null)
-                if(this.EstabilishConnection())
+                if (this.EstabilishConnection())
                     this.RefreshConnection();
-
-            this.RefreshConnection();
-            
+            else
+                this.RefreshConnection();
         }
     }
 }
