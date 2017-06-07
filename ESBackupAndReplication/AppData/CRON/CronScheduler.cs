@@ -58,7 +58,7 @@ namespace ESBackupAndReplication.AppData.CRON
             ITrigger trigger = TriggerBuilder.Create()
                 .WithIdentity("trigger_client")
                 .StartNow()
-                .WithSimpleSchedule(x => x.WithIntervalInSeconds(10))
+                .WithSimpleSchedule(x => x.WithIntervalInSeconds(interval))
                 .Build();
 
             this._scheduler.ScheduleJob(job, trigger);

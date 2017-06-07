@@ -16,12 +16,13 @@ namespace ESBackupAndReplication
         private Initializer _Initializer { get; set; }
         public ESBackupAndReplicationService()
         {
-            InitializeComponent();            
+            InitializeComponent();           
+            this._Initializer = new Initializer();
         }
 
         protected override void OnStart(string[] args)
         {
-            this._Initializer = new Initializer();
+            this._Initializer.Start();
         }
 
         protected override void OnStop()

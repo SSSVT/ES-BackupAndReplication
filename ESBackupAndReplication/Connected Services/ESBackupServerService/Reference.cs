@@ -515,6 +515,9 @@ namespace ESBackupAndReplication.ESBackupServerService {
         private long IDBackupTemplateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private short PathOrderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -522,6 +525,9 @@ namespace ESBackupAndReplication.ESBackupServerService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte TargetTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -573,6 +579,19 @@ namespace ESBackupAndReplication.ESBackupServerService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public short PathOrder {
             get {
                 return this.PathOrderField;
@@ -607,6 +626,19 @@ namespace ESBackupAndReplication.ESBackupServerService {
                 if ((this.TargetTypeField.Equals(value) != true)) {
                     this.TargetTypeField = value;
                     this.RaisePropertyChanged("TargetType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
                 }
             }
         }
