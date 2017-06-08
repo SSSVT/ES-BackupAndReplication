@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ESBackupAndReplication.AppData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,21 @@ namespace ESBackupAndReplication
 {
     public partial class ESBackupAndReplicationService : ServiceBase
     {
+        private Initializer _Initializer { get; set; }
         public ESBackupAndReplicationService()
         {
-            InitializeComponent();
+            InitializeComponent();           
+            this._Initializer = new Initializer();
         }
 
         protected override void OnStart(string[] args)
         {
+            this._Initializer.Start();
         }
 
         protected override void OnStop()
         {
+            this._Initializer.Stop();
         }
     }
 }

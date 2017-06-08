@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ESBackupServer.Database.Objects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ESBackupServer.Database.Objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:53095/ESBackupServerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="ClientStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Verified" />
+      <xs:enumeration value="Unverified" />
+      <xs:enumeration value="Banned" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClientStatus" nillable="true" type="tns:ClientStatus" />
+  <xs:complexType name="ArrayOfBackupTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BackupTemplate" nillable="true" type="tns:BackupTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBackupTemplate" nillable="true" type="tns:ArrayOfBackupTemplate" />
+  <xs:complexType name="BackupTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BackupType" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="CRONRepeatInterval" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Compression" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DaysToExpiration" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="IDClient" type="xs:int" />
+      <xs:element minOccurs="0" name="IsEmailNotificationEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNotificationEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Paths" nillable="true" type="tns:ArrayOfBackupTemplatePath" />
+      <xs:element minOccurs="0" name="SearchPattern" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="BackupTemplate" nillable="true" type="tns:BackupTemplate" />
+  <xs:complexType name="ArrayOfBackupTemplatePath">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BackupTemplatePath" nillable="true" type="tns:BackupTemplatePath" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBackupTemplatePath" nillable="true" type="tns:ArrayOfBackupTemplatePath" />
+  <xs:complexType name="BackupTemplatePath">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="IDBackupTemplate" type="xs:long" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathOrder" type="xs:short" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetType" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="BackupTemplatePath" nillable="true" type="tns:BackupTemplatePath" />
+  <xs:complexType name="BackupInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BackupType" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="BaseBackupID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Compressed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailSent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="IDBackupTemplate" type="xs:long" />
+      <xs:element minOccurs="0" name="IDClient" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="UTCEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UTCExpiration" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UTCStart" type="xs:dateTime" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="BackupInfo" nillable="true" type="tns:BackupInfo" />
+</xs:schema>

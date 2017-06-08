@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESBackupAndReplication", "ESBackupAndReplication\ESBackupAndReplication.csproj", "{A6828A63-621B-4114-B05B-2532B4E063F9}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ServiceSetup", "ServiceSetup\ServiceSetup.vdproj", "{B8E26859-4721-4EB6-8E21-3FDB6E678958}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{A6828A63-621B-4114-B05B-2532B4E063F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6828A63-621B-4114-B05B-2532B4E063F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6828A63-621B-4114-B05B-2532B4E063F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E26859-4721-4EB6-8E21-3FDB6E678958}.Debug|Any CPU.ActiveCfg = Debug
+		{B8E26859-4721-4EB6-8E21-3FDB6E678958}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a3c2bfd1-2469-4e77-a281-ce4d6e444067" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:53095/ESBackupServerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ESBackupServerService.xsd" MetadataType="Schema" ID="1cf7bcf6-eb1f-4659-8df5-447bbd98e4d5" SourceId="1" SourceUrl="http://localhost:53095/ESBackupServerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ESBackupServerService1.xsd" MetadataType="Schema" ID="e6db55fe-a8dd-4b09-b6f1-296de40490fa" SourceId="1" SourceUrl="http://localhost:53095/ESBackupServerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ESBackupServerService2.xsd" MetadataType="Schema" ID="7ab55917-245d-4cf9-9eb2-51301deb6e6a" SourceId="1" SourceUrl="http://localhost:53095/ESBackupServerService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ESBackupServerService3.xsd" MetadataType="Schema" ID="23c47595-374c-417d-8ded-2ac4dc60cc65" SourceId="1" SourceUrl="http://localhost:53095/ESBackupServerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ESBackupServerService4.xsd" MetadataType="Schema" ID="c440d7fb-12be-4c4c-a01f-e5e5b482584a" SourceId="1" SourceUrl="http://localhost:53095/ESBackupServerService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ESBackupServerService5.xsd" MetadataType="Schema" ID="22ed1b37-ae44-4518-aec8-90077be0c398" SourceId="1" SourceUrl="http://localhost:53095/ESBackupServerService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ESBackupServerService.disco" MetadataType="Disco" ID="42f4ba59-a1b3-4421-a2ea-e53bd7891b9e" SourceId="1" SourceUrl="http://localhost:53095/ESBackupServerService.svc?disco" />
+    <MetadataFile FileName="ESBackupServerService.wsdl" MetadataType="Wsdl" ID="d308f05c-a616-4394-9f40-d8534d10f3de" SourceId="1" SourceUrl="http://localhost:53095/ESBackupServerService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
